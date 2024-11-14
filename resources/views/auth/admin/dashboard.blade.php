@@ -82,5 +82,11 @@
             </div>
         </div>
     </div>
+    <div class="mt-4" style="height: 16rem;">
+        <livewire:livewire-pie-chart
+            key="{{ $columnChartModel->reactiveKey() }}"
+            :pie-chart-model="$columnChartModel"
+        />
+    </div>
     <livewire:dashboard-orders></livewire:dashboard-orders>
 @endsection

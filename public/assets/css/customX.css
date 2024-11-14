@@ -503,6 +503,28 @@ a.disabled {
 .product-sticky-content.fixed .product-form {
     display: none !important
 }
+.modal {
+    transition: opacity 0.500s ease;
+}
+
+body.modal-active {
+    overflow-x: hidden;
+    overflow-y: visible !important;
+}
+
+/* Toggle A */
+input:checked ~ .dot {
+    transform: translateX(100%);
+    background-color: #48bb78;
+}
+.tox .tox-promotion-link {
+    display: none !important;
+}
+/* Toggle B */
+input:checked ~ .dot {
+    transform: translateX(100%);
+    background-color: #48bb78;
+}
 /*.form-check-input[type="checkbox"] {*/
 /*    float: left !important;*/
 /*    margin-right: 7px !important;*/

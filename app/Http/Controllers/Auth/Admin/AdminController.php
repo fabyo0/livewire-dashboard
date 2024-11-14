@@ -9,6 +9,8 @@ use App\Models\Notification;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
+use Asantibanez\LivewireCharts\Models\ColumnChartModel;
+use Asantibanez\LivewireCharts\Models\PieChartModel;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -60,14 +62,23 @@ class AdminController extends Controller
 //        if (auth()->guard('admin')->check()) {
         $notifications = DB::table('notifications')->orderBy('created_at', 'DESC')->get();
         $customers = Customer::all();
+        $countCustomers = DB::table('customers')->count();
+        $countOrders = DB::table('orders')->count();
         $products = DB::table('products')->count();
         $orders = Order::orderBy('created_at', 'DESC')->paginate(8);
+
+        $columnChartModel =
+            (new PieChartModel())
+                ->addSlice('Users', $countCustomers, '#f6ad55')
+                ->addSlice('Orders', $countOrders, '#fc8181')
+                ->addSlice('Products', $products, '#90cdf4');
 
         return view('auth.admin.dashboard', [
             'customers' => $customers,
             'products' => $products,
             'orders' => $orders,
             'notifications' => $notifications,
+            'columnChartModel' => $columnChartModel,
         ]);
 
     }

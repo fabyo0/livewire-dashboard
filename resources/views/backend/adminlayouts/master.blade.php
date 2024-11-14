@@ -7,14 +7,14 @@
     <meta name="referrer" content="always">
     <link rel="canonical" href="">
     <title> Admin Dashboard | {{ config('app.name') }}</title>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
     <meta name="description" content="">
     <!-- NO INDEX -->
     <meta name="robots" content="noindex, nofollow">
     <!-- END NO INDEX -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
     <!-- Google Fonts -->
@@ -26,7 +26,6 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/vendor/animate.css/animate.min.css">
     <x-head.tinymce-config/>
-
     <livewire:styles/>
 </head>
 <body>
@@ -77,39 +76,11 @@
             reader.readAsDataURL(this.files[0]);
         });
     });
-</script>
-<script>
     $(document).ready(function () {
         $('#is_shipped').change(function () {
             $(this).closest("form").submit();
         });
     });
-</script>
-<style>
-    .modal {
-        transition: opacity 0.25s ease;
-    }
-
-    body.modal-active {
-        overflow-x: hidden;
-        overflow-y: visible !important;
-    }
-
-    /* Toggle A */
-    input:checked ~ .dot {
-        transform: translateX(100%);
-        background-color: #48bb78;
-    }
-    .tox .tox-promotion-link {
-        display: none !important;
-    }
-    /* Toggle B */
-    input:checked ~ .dot {
-        transform: translateX(100%);
-        background-color: #48bb78;
-    }
-</style>
-<script>
     $(document).ready(function () {
         $(window).load(function () {
             setTimeout(function () {
@@ -119,7 +90,7 @@
     });
 </script>
 @yield('javascript')
+@livewireChartsScripts
 <livewire:scripts/>
-@livewireStyles
 </body>
 </html>

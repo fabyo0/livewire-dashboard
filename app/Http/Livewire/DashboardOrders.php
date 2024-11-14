@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Order;
+use Asantibanez\LivewireCharts\Models\ColumnChartModel;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
