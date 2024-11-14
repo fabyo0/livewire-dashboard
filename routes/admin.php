@@ -21,11 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::match(['get', 'post'], env('APP_ADMIN_URL'), [LoginAdminController::class, 'login'])->name('adminlogin');
 
 
-//Route::any('products/destroy/{product?}', [ProductController::class, 'destroy'])->name('products.destroy');
 Route::group(['middleware' => 'admin'], function () {
     // Admin dashboard
-//    Route::any( env('APP_ADMIN_URL') . '/register', [RegisterAdminController::class, 'showRegistrationForm'])->name('registerAdmin');
-//    Route::post(env('APP_ADMIN_URL') .'/register', [RegisterAdminController::class, 'register'])->name('registerAdminPOST');
     Route::resource('customers', AdminCustomerController::class);
     Route::resource('coupon', CouponController::class);
     Route::resource('products', ProductsController::class);
@@ -35,8 +32,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/attributes/duplicate/{id}',[AttributeController::class, 'duplicate'])->name('attributes.duplicate');
     Route::get('/brands/duplicate/{id}',[BrandController::class, 'duplicate'])->name('brands.duplicate');
     Route::get('/products/duplicate/{id}',[ProductsController::class, 'duplicate'])->name('products.duplicate');
-//    Route::delete('/remove/{product?}',[ProductsController::class, 'remove2'])->name('remove.pro');
-//    Route::delete('/remove2/{product?}',[ProductsController::class, 'remove3'])->name('remove.pro3');
     Route::any('/products/remove1/{id}/{product?}', [ProductsController::class,'remove1'])->name('remove1');
     Route::any('/products/remove2/{id}/{product?}', [ProductsController::class,'remove2'])->name('remove2');
     Route::any('/products/remove3/{id}/{product?}', [ProductsController::class,'remove3'])->name('remove3');
