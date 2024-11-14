@@ -16,7 +16,7 @@ class DashboardOrders extends Component
 
     protected $paginationTheme = 'bootstrap';
     public $searchOrder;
-    public $perPage = 10;
+    public $perPage = 3;
     public $sort = 'created_at|desc';
     public $sortColumnName = 'created_at';
     public $sortDirection = 'desc';

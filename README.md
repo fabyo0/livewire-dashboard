@@ -45,5 +45,5 @@ And much more features.
 
     Check .env.example to set up application
 
-<p align="center"><img src="public/uploads/panel/admin-orders.jpg" width="860"></p>
+<p align="center"><img src="public/uploads/panel/dashboard-orders.jpg" width="860"></p>
 <p align="center"><img src="public/uploads/panel/admin-products.jpg" width="860"></p>
