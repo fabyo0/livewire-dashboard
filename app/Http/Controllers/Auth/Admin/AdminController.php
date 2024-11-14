@@ -42,7 +42,6 @@ class AdminController extends Controller
     {
         $this->middleware('adminAuth')->except('logout');
 
-
     }
 
     public function logout(Request $request)
