@@ -1,0 +1,9 @@
+{
+    "materie prime": "materie prime",
+    "packaging decorazioni": "packaging decorazioni",
+    "attrezzature" : "attrezzature",
+    "processing" : "Processing",
+    "pending" : "Pending",
+    "completed" : "Completed",
+    "decline" : "Decline"
+}
