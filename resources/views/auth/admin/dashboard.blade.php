@@ -88,7 +88,6 @@
                     key="{{ $columnChartModel->reactiveKey() }}"
                     :pie-chart-model="$columnChartModel"
                 />
-
         </div>
     </div>
     <livewire:dashboard-orders></livewire:dashboard-orders>
