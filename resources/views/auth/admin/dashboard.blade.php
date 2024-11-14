@@ -83,12 +83,27 @@
         </div>
     </div>
     <div class="mt-4">
-        <div class="flex items-center shadow-sm rounded-md bg-white py-3 my-3 " style="height: 16rem;">
-                <livewire:livewire-pie-chart
-                    key="{{ $columnChartModel->reactiveKey() }}"
-                    :pie-chart-model="$columnChartModel"
-                />
+        <div class="flex flex-wrap mt-4">
+            <div class="w-full pr-4 sm:w-1/3 md:w-1/2 lg:w-1/3 xl:w-1/3 ">
+                <div class="flex items-center shadow-sm rounded-md bg-white py-3 my-3 " style="height: 16rem;">
+                    <livewire:livewire-pie-chart
+                        key="{{ $columnChartModel->reactiveKey() }}"
+                        :pie-chart-model="$columnChartModel"
+                    />
+                </div>
+            </div>
+            <div class="w-full pr-4 sm:w-1/3 md:w-1/2 lg:w-1/3 xl:w-1/3 ">
+
+                <div class="flex items-center shadow-sm rounded-md bg-white py-3 my-3 " style="height: 16rem;">
+                    <livewire:livewire-column-chart
+                        key="{{ $lineChartModel->reactiveKey() }}"
+                        :column-chart-model="$lineChartModel"
+                    />
+                </div>
+            </div>
+
         </div>
+
     </div>
     <livewire:dashboard-orders></livewire:dashboard-orders>
 @endsection

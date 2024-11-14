@@ -204,7 +204,6 @@ if (!function_exists('getImgDir')) {
     }
 }
 if (!function_exists('price')) {
-
     /**
      * @param $format (product obj|string|decimal)
      * @return string
@@ -212,6 +211,16 @@ if (!function_exists('price')) {
     function price($format): string
     {
         return number_format(floatval($format->price ?? $format), 2, ',', '');
+    }
+}
+if (!function_exists('dateFormat')) {
+    /**
+     * @param $format (product obj|string|decimal)
+     * @return string
+     */
+    function dateFormat($format): string
+    {
+        return Carbon\Carbon::parse($format)->format('d/m/Y H:s');
     }
 }
 if (!function_exists('priceView')) {
