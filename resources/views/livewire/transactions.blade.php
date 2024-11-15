@@ -22,13 +22,13 @@
         </div>
         <div class="my-4">
             <span class="text-sm text-gray-700 leading-5">
-                @if($orders->firstItem() )
+                @if($transactions->firstItem() )
                     <span>{!! __('Showing') !!}</span>
-                    <span class="font-medium">{{ $orders->firstItem() }}</span>
+                    <span class="font-medium">{{ $transactions->firstItem() }}</span>
                     <span>{!! __('to') !!}</span>
-                    <span class="font-medium">{{ $orders->lastItem() }}</span>
+                    <span class="font-medium">{{ $transactions->lastItem() }}</span>
                     <span>{!! __('of') !!}</span>
-                    <span class="font-medium">{{ $orders->total() }}</span>
+                    <span class="font-medium">{{ $transactions->total() }}</span>
                     <span>{!! __('results') !!}</span>
                 @else
                     <span>No results found</span>
@@ -100,7 +100,7 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
 
-                @forelse ($orders as $order)
+                @foreach ($transactions as $order)
                     <tr class="bg-white">
                         <td class="px-6 py-4 text-left whitespace-nowrap text-sm text-gray-500">
                             <div class="flex items-center">
@@ -178,42 +178,20 @@
                                 datetime="2020-07-11">{{ Carbon\Carbon::parse($order->created_at)->format('d/m/Y H:s') }}</time>
                         </td>
                     </tr>
-                @empty
-                    <table class="min-w-full divide-y divide-gray-200">
-
-                        <tbody class="bg-white divide-y divide-gray-200">
-                        <tr class="bg-white">
-
-                            <td class="max-w-0 w-full px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                <div class="flex ">
-                                    <!-- Heroicon name: solid/cash -->
-                                    <p class="text-gray-500  font-size-24 truncate group-hover:text-gray-900">
-                                        No payment received </p>
-
-                                </div>
-                            </td>
-
-                        </tr>
-
-
-                        <!-- More transactions... -->
-                        </tbody>
-                    </table>
-                    <!-- Pagination -->
-                @endforelse
+                @endforeach
 
 
                 <!-- More transactions... -->
                 </tbody>
             </table>
             <!-- Pagination -->
-
+            @if(isset($query))
+                {{ $transactions->appends($query)->onEachSide(1)->links() }}
+            @else
+                {{ $transactions->onEachSide(1)->links('vendor.livewire.tailwind') }}
+            @endif
         </div>
 
     </div>
-    @if(isset($query))
-        {{ $orders->appends($query)->onEachSide(1)->links() }}
-    @else
-        {{ $orders->onEachSide(1)->links('vendor.livewire.tailwind') }}
-    @endif
+
 </div>

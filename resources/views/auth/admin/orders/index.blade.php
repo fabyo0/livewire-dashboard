@@ -3,9 +3,7 @@
 @section('body')
 
     <!-- Page header -->
-
     <h3 class="text-gray-700 text-3xl font-medium">Transactions</h3>
-
     <!-- Activity table (small breakpoint and up) -->
 
     <livewire:transactions></livewire:transactions>

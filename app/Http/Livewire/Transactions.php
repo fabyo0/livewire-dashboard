@@ -9,20 +9,14 @@ use Livewire\WithPagination;
 class Transactions extends Component
 {
     use WithPagination;
-
     protected $paginationTheme = 'bootstrap';
+    public $filters = [];
     public $searchTransaction;
     public $perPage = 9;
     public $sort = 'created_at|desc';
     public $sortColumnName = 'created_at';
     public $sortDirection = 'desc';
-    public $filters = [
-        'processing' => false,
-        'pending' => false,
-        'completed' => false,
-        'decline' => false,
-    ];
-    public $selected;
+
 
     public function mount()
     {
@@ -38,17 +32,14 @@ class Transactions extends Component
 
     public function render()
     {
-        $getTransaction = Order::with('items')->withCount('items');
-        $this->applySearchFilter($getTransaction->orderBy($this->sortColumnName, $this->sortDirection));
-        $getStatus = Order::with('items')->distinct('status')->pluck('status');
+        $transactions = Order::with('items')->where('is_paid', '=', 1)->withCount('items');
+        $this->applySearchFilter($transactions->orderBy($this->sortColumnName, $this->sortDirection));
 
-        $orders = $getTransaction->orderBy($this->sortByColumn(), $this->sortDirection())
-            ->where('is_paid', '=', 1)
+        $transactions = $transactions->orderBy($this->sortByColumn(), $this->sortDirection())
             ->paginate($this->perPage);
 
         return view('livewire.transactions', [
-            'orders' => $orders,
-            'getStatus' => $getStatus
+            'transactions' => $transactions
         ]);
     }
 
@@ -71,12 +62,11 @@ class Transactions extends Component
     }
 
 
-    private function applySearchFilter($orders)
+    private function applySearchFilter($transactions)
     {
         if ($this->searchTransaction) {
-            return $orders->whereRaw("sub_order_id LIKE \"%$this->searchTransaction%\"")
-                ->orWhereRaw("payer_email LIKE \"%$this->searchTransaction%\"")
-                ->orWhereRaw("status LIKE \"%$this->searchTransaction%\"");
+            return $transactions->whereRaw("order_number LIKE \"%$this->searchTransaction%\"")
+                ->orWhereRaw("email LIKE \"%$this->searchTransaction%\"");
         }
 
         return null;
