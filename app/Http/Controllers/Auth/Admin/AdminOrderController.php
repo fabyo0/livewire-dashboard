@@ -101,30 +101,12 @@ class AdminOrderController extends Controller
             Mail::to($order->email)->send(new OrderShipped($order));
 
         }
-        //detraggo la quantità di product acquistata dalla quantità di magazzino del singolo product
-//        foreach ($order->orderItem as $subOrdItem) {
-//            $subOrdItem->product()->decrement('PezziConfezione', $subOrdItem->quantity);
-//        }
-        $subOrder = SubOrder::where('order_id', $order->id)->first();
+
         $order->is_paid = '1';
         $order->status = 'completed';
 
-        // sottraggo ai prodotti il numero delle quantità di magazzino dopo il pagamento con Stripe
-        $order->items()->decrement('stock_qty', $subOrder->item_count);
 
         $order->save();
-
-        //inserisco una nuova transazione
-        $transactionUpdate = new Transaction();
-        $subOrderItem = SubOrder::where('order_id', $order->id)->first();
-        $transactionUpdate->sub_order_id = $subOrderItem->id;
-        $transactionUpdate->transaction_id = $subOrderItem->id;
-        $transactionUpdate->amount_paid = $order->grand_total;
-        $transactionUpdate->payer_email = $order->customer->email;
-        $transactionUpdate->payer_order_id = $order->id;
-        $transactionUpdate->customer_id = $order->customer_id;
-        $transactionUpdate->status = 'completed';
-        $transactionUpdate->save();
 
         return redirect()->route('adminOrders.show', $order->id)->with('success', 'Shipping confirmed');
     }

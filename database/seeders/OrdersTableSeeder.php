@@ -58,7 +58,7 @@ class OrdersTableSeeder extends Seeder
                 'shipping_zipcode' => $faker->postcode(),
                 'shipping_province' => $faker->city(),
                 'shipping_country' => $faker->country(),
-                'grand_total' => mt_rand(99, 4999) / 100,
+                'grand_total' => mt_rand(99, 63999) / 100,
                 'customer_id' => $this->customers[rand(0, count($this->customers) - 1)]->id,
                 'status' => 'completed',
                 'is_paid' => '1',

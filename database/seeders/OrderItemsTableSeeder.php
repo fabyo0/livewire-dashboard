@@ -30,7 +30,7 @@ class OrderItemsTableSeeder extends Seeder
                 'product_id' => $this->products[rand(0, count($this->products) - 1)]->id,
                 'order_id' => $this->orders[rand(0, count($this->orders) - 1)]->id,
                 'price' => mt_rand(99, 4999) / 100,
-                'quantity' =>$faker->randomNumber(),
+                'quantity' =>$faker->randomNumber(1,252),
             ]);
 
 
