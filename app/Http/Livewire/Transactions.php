@@ -32,9 +32,10 @@ class Transactions extends Component
 
     public function render()
     {
-        $transactions = Order::with('items')->where('is_paid', '=', 1)->withCount('items');
+        $transactions = Order::with('items')
+            ->where('is_paid', '=', 1)
+            ->withCount('items');
         $this->applySearchFilter($transactions->orderBy($this->sortColumnName, $this->sortDirection));
-
         $transactions = $transactions->orderBy($this->sortByColumn(), $this->sortDirection())
             ->paginate($this->perPage);
 
