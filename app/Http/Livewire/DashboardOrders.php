@@ -20,8 +20,6 @@ class DashboardOrders extends Component
     public $sort = 'created_at|desc';
     public $sortColumnName = 'created_at';
     public $sortDirection = 'desc';
-    public $field;
-    public $filter = "";
     public $filters = [
         'processing' => false,
         'pending' => false,
@@ -29,12 +27,9 @@ class DashboardOrders extends Component
         'decline' => false,
     ];
     public $selected;
-    public $ids = [];
 
     public function mount()
     {
-
-
     }
 
     /*
@@ -123,9 +118,4 @@ class DashboardOrders extends Component
         return $this->sortDirection === 'asc' ? 'desc' : 'asc';
     }
 
-    public function setFilter(string $filter): DashboardOrders
-    {
-        $this->filter = $filter;
-        return $this;
-    }
 }
