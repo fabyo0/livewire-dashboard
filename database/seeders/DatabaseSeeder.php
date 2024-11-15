@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Http\Livewire\Transactions;
 use App\Models\Customer;
 use App\Models\Product;
 use App\Models\User;
@@ -26,5 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(OrderItemsTableSeeder::class);
         $this->call(SliderTableSeeder::class);
         $this->call(CouponTableSeeder::class);
+        $this->call(TransactionsTableSeeder::class);
+
     }
 }

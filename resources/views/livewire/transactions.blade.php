@@ -1,5 +1,40 @@
 <div class="mt-8">
     <div class="flex flex-col mt-4">
+        <div style="width: 100% !important;max-width: 450px">
+            <div class="search-style-2 my-4">
+                <form>
+                    <label for="default-search"
+                           class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
+                    <div class="relative">
+                        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor"
+                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <input wire:model.live="searchTransaction" type="search" id="default-search"
+                               class="block p-4 pl-10 w-full text-sm text-gray-900 bg-white-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               placeholder="Search Transaction, SKU code..." required>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="my-4">
+            <span class="text-sm text-gray-700 leading-5">
+                @if($orders->firstItem() )
+                    <span>{!! __('Showing') !!}</span>
+                    <span class="font-medium">{{ $orders->firstItem() }}</span>
+                    <span>{!! __('to') !!}</span>
+                    <span class="font-medium">{{ $orders->lastItem() }}</span>
+                    <span>{!! __('of') !!}</span>
+                    <span class="font-medium">{{ $orders->total() }}</span>
+                    <span>{!! __('results') !!}</span>
+                @else
+                    <span>No results found</span>
+                @endif
+            </span>
+        </div>
         <div class="align-middle overflow-x-auto shadow sm:rounded-lg mb-4">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead>

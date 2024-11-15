@@ -26,10 +26,9 @@ class TransactionsTableSeeder extends Seeder
             Transaction::create([
 
                 'sub_order_id' => $this->orders[rand(0, count($this->orders) - 1)]->id,
-                'price' => mt_rand(99, 4999) / 100,
                 'amount_paid' => mt_rand(99, 4999) / 100,
-                'payer_email' =>$faker->unique()->safeEmail(),
-                'customer_id' => $this->orders[rand(0, count($this->orders) - 1)]->id,
+                'payer_email' => $this->customers[rand(0, count($this->customers) - 1)]->email,
+                'customer_id' => $this->customers[rand(0, count($this->customers) - 1)]->id,
                 'status' => 'completed'
             ]);
 
