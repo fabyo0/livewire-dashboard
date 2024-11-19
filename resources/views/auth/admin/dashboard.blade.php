@@ -84,7 +84,7 @@
     </div>
     <div class="mt-4">
         <div class="flex flex-wrap mt-4">
-            <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 ">
+            <div class="w-full sm:w-1/3 md:w-1/2 lg:w-1/3 xl:w-1/2 ">
                 <div class="flex items-center shadow-sm rounded-md bg-white py-3 my-3 " style="height: 14rem;">
                     <livewire:livewire-pie-chart
                         key="{{ $columnChartModel->reactiveKey() }}"
@@ -92,7 +92,7 @@
                     />
                 </div>
             </div>
-            <div class="w-full pl-5  sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/6 ">
+            <div class="w-full pl-5  sm:w-1/4 md:w-1/2 lg:w-1/2 xl:w-1/2 ">
 
                 <div class="flex items-center shadow-sm rounded-md bg-white py-3 my-3 " style="height: 14rem;">
                     <livewire:livewire-column-chart

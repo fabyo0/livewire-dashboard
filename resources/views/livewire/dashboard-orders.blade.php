@@ -17,7 +17,6 @@
                         <input wire:model.live="searchOrder" type="search" id="default-search"
                                class="block p-4 pl-10 w-full text-sm text-gray-900 bg-white-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                placeholder="Search Order..." required>
-                        {{--                        <button type="submit" class="btn px-6  py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:bg-blue-900  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out  absolute right-2.5 bottom-2.5">Search</button>--}}
                     </div>
                 </form>
             </div>
@@ -45,8 +44,7 @@
                     x-transition:leave-start="opacity-100 scale-100"
                     x-transition:leave-end="opacity-0 scale-95"
                     class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg"
-                    style="width:300px;"
-                >
+                    style="width:300px;">
                     <div
                         class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                         role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
@@ -68,7 +66,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <div class="align-middle overflow-x-auto shadow sm:rounded-lg mb-4">
         <table class="min-w-full divide-y divide-gray-200">
@@ -177,7 +174,6 @@
                             </div>
                         </div>
                     </td>
-
                     @if($order->status == 'completed')
                         <td class="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
                <span
@@ -222,12 +218,10 @@
                     </td>
                 </tr>
             @endforeach
-
             <!-- More transactions... -->
             </tbody>
         </table>
         <!-- Pagination -->
-
     </div>
     @if(isset($query))
         {{ $orders->appends($query)->onEachSide(1)->links() }}
