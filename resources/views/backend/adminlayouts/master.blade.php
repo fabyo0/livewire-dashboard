@@ -7,14 +7,14 @@
     <meta name="referrer" content="always">
     <link rel="canonical" href="">
     <title> Admin Dashboard | {{ config('app.name') }}</title>
-    <script src="{{ mix('js/app.js') }}"></script>
+    @vite('resources/js/app.js')
     <meta name="description" content="">
     <!-- NO INDEX -->
     <meta name="robots" content="noindex, nofollow">
     <!-- END NO INDEX -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    @vite('resources/css/app.css')
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
     <!-- Google Fonts -->
