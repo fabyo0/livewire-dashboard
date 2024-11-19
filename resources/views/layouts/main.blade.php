@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/assets/css/plugins/slider-range.css"/>
     <link rel="stylesheet" href="/assets/css/main.css?v=5.3"/>
     <link rel="stylesheet" href="/assets/vendor/animate/animate.min.css">
-    <script src="{{ mix('js/app.js') }}"></script>
+    @vite('resources/js/app.js')
     <livewire:styles/>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
