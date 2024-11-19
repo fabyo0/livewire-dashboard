@@ -11,6 +11,7 @@ use Asantibanez\LivewireCharts\Models\ColumnChartModel;
 use Asantibanez\LivewireCharts\Models\LineChartModel;
 use Asantibanez\LivewireCharts\Models\PieChartModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -59,6 +60,11 @@ class AdminController extends Controller
             ->get();
         $totalNovember = $transactions->sum('amount_paid');
 
+//    get amount transaction paid of current month
+        $transactions = DB::table('transactions')
+            ->whereMonth('created_at','=',Carbon::today()->month)
+            ->get();
+        $currentMonthTotal = $transactions->sum('amount_paid');
 
         $columnChartModel =
             (new PieChartModel())
@@ -69,12 +75,12 @@ class AdminController extends Controller
         $lineChartModel =
             (new ColumnChartModel())
                 ->setTitle('Profit month')
-                ->addColumn('September', 132, '#fc8181', [
+                ->addColumn('October', 132, '#fc8181', [
                     'tooltip' => '€' . price(132)
-                ])->addColumn('October', 355, '#f6ad55', [
-                    'tooltip' => '€' . price(355)
-                ])->addColumn('November', $totalNovember, '#008f39', [
-                    'tooltip' => '€' . price($totalNovember),
+                ])->addColumn('November', $totalNovember, '#f6ad55', [
+                    'tooltip' => '€' . price($totalNovember)
+                ])->addColumn('Current Month', $currentMonthTotal, '#008f39', [
+                    'tooltip' => '€' . price($currentMonthTotal),
                 ]);
 
         return view('auth.admin.dashboard', [
