@@ -22,7 +22,7 @@
                         @if ($orderInfo->is_shipped == '1')
 
                             <div class="flex justify-center mt-8" x-data="{ toggle: '0' }">
-                                <h2 class="text-grey-500 font-weight-bold inline-block mr-3 ">Spedito</h2>
+                                <h2 class="text-grey-500 font-weight-bold inline-block mr-3 ">Shipped</h2>
                                 <div
                                         class="relative w-12 h-6 transition duration-200 ease-linear rounded-full"
                                         style="margin-top:-5px"
@@ -42,7 +42,7 @@
                             </div>
                         @else
                             <div class="flex justify-center mt-8" x-data="{ toggle: '0' }">
-                                <h2 class="text-grey-500 font-weight-bold inline-block mr-3 ">Spedito</h2>
+                                <h2 class="text-grey-500 font-weight-bold inline-block mr-3 ">Shipped</h2>
 
                                 <div
                                         class="relative w-12 h-6 transition duration-200 ease-linear rounded-full"
@@ -131,10 +131,10 @@
                                         @endif
                                     </div>
                                     <div class="hidden sm:grid grid-cols-4 text-sm font-medium text-gray-600 mt-6">
-                                        <div class="text-indigo-600">Order effettuato</div>
-                                        <div class="text-center text-indigo-600">In elaborazione</div>
-                                        <div class="text-center">Spedito</div>
-                                        <div class="text-right">Consegnato</div>
+                                        <div class="text-indigo-600">Order completed</div>
+                                        <div class="text-center text-indigo-600">Processing</div>
+                                        <div class="text-center">Shipped</div>
+                                        <div class="text-right">Delivered</div>
                                     </div>
                                 </div>
                             </div>

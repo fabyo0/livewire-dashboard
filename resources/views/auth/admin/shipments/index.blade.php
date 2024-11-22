@@ -47,7 +47,7 @@
                                 <td class="py-4 px-6 border-b text-gray-500 text-center">
                                       <span
                                           class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 ">
-                                        Completato
+                                        Completed
                                       </span>
                                 </td>
                             @endif
@@ -56,7 +56,7 @@
                                 <td class="py-4 px-6 border-b text-gray-500 text-center">
                                     <span
                                         class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 ">
-                                        Pronto per l'acquisto
+                                        Ready for purchase
                                       </span>
                                 </td>
                             @endif
@@ -64,7 +64,7 @@
                                 <td class="py-4 px-6 border-b text-gray-500 text-center">
                                      <span
                                          class="inline-flex px-2.5 py-0.5 items-center rounded-full text-xs font-medium bg-yellow-300 text-warning-800 ">
-                                        In elaborazione
+                                        Processing
                                       </span>
                                 </td>
                             @endif
